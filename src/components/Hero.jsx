@@ -48,10 +48,16 @@ export default function Hero() {
 
       <div className="container hero-content" ref={contentRef}>
         <div className="hero-left">
-          <span className="availability">
-            <span className="status-dot" />
-            Available for opportunities
-          </span>
+          <div className="availability-row">
+            <span className="availability">
+              <span className="status-dot" />
+              Available for freelance & contract
+            </span>
+            <span className="availability-detail">
+              <span className="detail-icon">🌐</span>
+              UTC+7 (WIB) · Overlap: US Morning / EU Afternoon
+            </span>
+          </div>
 
           <h1 className="hero-title">
             Hi, I&apos;m <span className="gradient-text">Bagues Putra Tawaqqal</span>

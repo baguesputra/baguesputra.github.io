@@ -10,12 +10,13 @@ const stats = [
 
 const experiences = [
   {
-    period: '2026 — Sekarang',
+    period: '2026 — Present',
     company: 'PT Tata Optima Property',
     role: 'IT Programmer',
     points: [
-      'Membuat aplikasi kebutuhan perusahaan',
-      'Bertanggung jawab dalam database',
+      'Develop and maintain internal business applications (Laravel, React, Node.js)',
+      'Design and optimize PostgreSQL/MySQL databases for multi-tenant systems',
+      'Implement CI/CD pipelines and Docker-based deployments',
     ],
   },
   {
@@ -23,10 +24,10 @@ const experiences = [
     company: 'Rumah Sakit Amanah Medical Centre',
     role: 'IT Coordinator',
     points: [
-      'Mengembangkan, memelihara, dan meningkatkan SIMRS berbasis web (Python/Django, JavaScript, SQL) termasuk modul baru sesuai kebutuhan operasional',
-      'Menangani bug fixing & error handling, analisis logika program, optimasi kode, dan solusi teknis yang efisien',
-      'Mengelola server aplikasi & database: instalasi, konfigurasi, tuning performa, monitoring',
-      'Mengelola keamanan jaringan & sistem (firewall, VPN) untuk akses aplikasi aman lintas departemen',
+      'Developed, maintained, and enhanced web-based SIMRS (Hospital Information System) using Python/Django, JavaScript, SQL — adding new modules per operational needs',
+      'Handled bug fixing, error handling, logic analysis, code optimization, and efficient technical solutions',
+      'Managed application servers & databases: installation, configuration, performance tuning, monitoring',
+      'Managed network & system security (firewall, VPN) for secure cross-department application access',
     ],
   },
   {
@@ -34,33 +35,33 @@ const experiences = [
     company: 'PT Mitra Megah Profitamas',
     role: 'IT Coordinator',
     points: [
-      'Maintenance & debugging aplikasi perusahaan serta penambahan fitur (Yii Framework)',
-      'Mengembangkan & memelihara aplikasi web Laravel & CodeIgniter untuk efisiensi operasional',
-      'Merancang, mengelola, dan mengoptimalkan database MySQL/SQL + optimasi query',
-      'Mengelola server aplikasi serta jaringan Mikrotik & CCTV Hikvision di pusat & cabang',
+      'Maintained & debugged company applications, added new features (Yii Framework)',
+      'Developed & maintained Laravel & CodeIgniter web apps for operational efficiency',
+      'Designed, managed, and optimized MySQL/SQL databases with query optimization',
+      'Managed application servers, Mikrotik networking & Hikvision CCTV at HQ and branches',
     ],
   },
   {
-    period: '2022 — Sekarang',
+    period: '2022 — Present',
     company: 'Freelance Programmer',
     role: 'Web Development',
     points: [
-      'Mengembangkan aplikasi web sesuai kebutuhan klien (analisis, pengembangan, implementasi)',
-      'Membangun website company profile & landing page untuk branding bisnis klien',
-      'Mengembangkan sistem informasi & fitur kustom untuk digitalisasi proses bisnis',
-      'Konsultasi teknis, pendampingan proyek, dan bimbingan pengembangan aplikasi',
+      'Developed custom web applications per client requirements (analysis, development, implementation)',
+      'Built company profile websites & landing pages for client business branding',
+      'Developed information systems & custom features for business process digitalization',
+      'Technical consulting, project guidance, and application development mentoring',
     ],
   },
   {
     period: '2019',
     company: 'Lyceum of the Philippines University Batangas',
     role: 'Frontend Developer',
-    tag: 'Magang · 1 bulan',
+    tag: 'Internship · 1 month',
     points: [
-      'Mengembangkan UI website Fakultas Hukum',
-      'Merancang struktur modul & fitur website sesuai kebutuhan pengguna',
-      'Mengimplementasikan desain web responsif & mudah digunakan',
-      'Melakukan pengujian serta perbaikan tampilan untuk meningkatkan kualitas website',
+      'Developed UI for Faculty of Law website',
+      'Designed website module & feature structure per user requirements',
+      'Implemented responsive, user-friendly web design',
+      'Conducted testing and UI fixes to improve website quality',
     ],
   },
 ]

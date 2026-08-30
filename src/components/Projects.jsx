@@ -39,6 +39,14 @@ function ProjectCard({ project, index }) {
 
       <p className="project-desc">{project.description}</p>
 
+      {project.highlights && project.highlights.length > 0 && (
+        <ul className="project-highlights">
+          {project.highlights.map((h, i) => (
+            <li key={i}>{h}</li>
+          ))}
+        </ul>
+      )}
+
       <div className="project-tech">
         {project.tech.slice(0, 5).map((t) => (
           <span key={t} className="project-tech-item">{t}</span>

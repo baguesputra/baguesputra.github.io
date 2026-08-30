@@ -5,6 +5,7 @@ import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
 import Projects from './components/Projects.jsx'
+import WorkWithMe from './components/WorkWithMe.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import Magnetic from './components/Magnetic.jsx'
@@ -85,6 +86,7 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <WorkWithMe />
         <Contact />
       </main>
       <Footer />
