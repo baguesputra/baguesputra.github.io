@@ -1,3 +1,5 @@
+import Magnetic from './Magnetic.jsx'
+
 export default function Footer() {
   const year = new Date().getFullYear()
   return (
@@ -7,11 +9,11 @@ export default function Footer() {
           <span className="brand-dot" /> bagues<em>putra</em>
         </p>
         <p className="footer-meta">
-          Designed &amp; built with React · <span className="gradient-text">Bagues Putra</span> © {year}
+          Designed &amp; built with React · <span className="gradient-text">Bagues Putra Tawaqqal</span> © {year}
         </p>
-        <button className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top">
+        <Magnetic as="button" className="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top">
           ↑
-        </button>
+        </Magnetic>
       </div>
     </footer>
   )

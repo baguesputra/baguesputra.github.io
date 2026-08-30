@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useReveal } from '../hooks/useEffects.js'
+import SplitWords from './SplitWords.jsx'
+import Magnetic from './Magnetic.jsx'
 import { socials } from '../data/portfolio.js'
 
 export default function Contact() {
@@ -23,11 +25,11 @@ export default function Contact() {
     <section className="section contact" id="contact">
       <div className="container">
         <div className="contact-card">
-          <div className="contact-left reveal" ref={headRef}>
+          <div className="contact-left reveal reveal-left" ref={headRef}>
             <span className="section-tag">// Contact</span>
-            <h2 className="section-title">
+            <SplitWords as="h2" className="section-title">
               Let&apos;s build something <span className="gradient-text">amazing</span>
-            </h2>
+            </SplitWords>
             <p className="contact-desc">
               Whether you have a project in mind, a role to fill, or just want to talk tech —
               my inbox is always open. I&apos;ll get back to you as soon as possible.
@@ -59,14 +61,14 @@ export default function Contact() {
 
             <div className="contact-socials">
               {socials.map((s) => (
-                <a key={s.label} className="social-btn" href={s.url} target="_blank" rel="noreferrer" aria-label={s.label}>
+                <Magnetic key={s.label} className="social-btn" href={s.url} target="_blank" rel="noreferrer" aria-label={s.label}>
                   {s.label}
-                </a>
+                </Magnetic>
               ))}
             </div>
           </div>
 
-          <div className="contact-right reveal" ref={formRef}>
+          <div className="contact-right reveal reveal-right" ref={formRef}>
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-field">

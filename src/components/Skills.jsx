@@ -1,4 +1,5 @@
-import { useReveal, useInView } from '../hooks/useEffects.js'
+import { useReveal, useInView, useSpotlight } from '../hooks/useEffects.js'
+import SplitWords from './SplitWords.jsx'
 import { skills } from '../data/portfolio.js'
 
 const marquee = [
@@ -24,6 +25,21 @@ function SkillBar({ skill, start, delay }) {
   )
 }
 
+function SkillGroup({ group }) {
+  const ref = useSpotlight()
+  return (
+    <div className="skill-group" ref={ref}>
+      <div className="skill-group-head">
+        <span className="skill-group-icon">{group.icon}</span>
+        <h3>{group.group}</h3>
+      </div>
+      {group.items.map((s, si) => (
+        <SkillBar key={s.name} skill={s} start={true} delay={si * 120} />
+      ))}
+    </div>
+  )
+}
+
 export default function Skills() {
   const headRef = useReveal()
   const gridRef = useReveal()
@@ -34,26 +50,18 @@ export default function Skills() {
       <div className="container">
         <div className="section-head reveal" ref={headRef}>
           <span className="section-tag">// Skills</span>
-          <h2 className="section-title">
+          <SplitWords as="h2" className="section-title">
             My <span className="gradient-text">tech arsenal</span>
-          </h2>
+          </SplitWords>
           <p className="section-sub">
             A battle-tested toolkit across the full stack and beyond — from pixel-perfect
             UIs to robust APIs and the infrastructure underneath.
           </p>
         </div>
 
-        <div className="skills-grid reveal" ref={gridRef}>
-          {skills.map((group, gi) => (
-            <div className="skill-group" key={group.group}>
-              <div className="skill-group-head">
-                <span className="skill-group-icon">{group.icon}</span>
-                <h3>{group.group}</h3>
-              </div>
-              {group.items.map((s, si) => (
-                <SkillBar key={s.name} skill={s} start={true} delay={si * 120} />
-              ))}
-            </div>
+        <div className="skills-grid reveal reveal-scale" ref={gridRef}>
+          {skills.map((group) => (
+            <SkillGroup key={group.group} group={group} />
           ))}
         </div>
       </div>

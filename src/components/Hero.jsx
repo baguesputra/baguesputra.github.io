@@ -1,4 +1,6 @@
-import { useTyped } from '../hooks/useEffects.js'
+import { useRef } from 'react'
+import { useTyped, useParallax, useParticleNetwork, useHeroFade } from '../hooks/useEffects.js'
+import Magnetic from './Magnetic.jsx'
 import { socials } from '../data/portfolio.js'
 
 const roles = [
@@ -27,17 +29,24 @@ function SocialIcon({ name }) {
 export default function Hero() {
   const typed = useTyped(roles)
   const year = new Date().getFullYear()
+  const bgRef = useRef(null)
+  const canvasRef = useRef(null)
+  const contentRef = useRef(null)
+  useParallax(bgRef)
+  useParticleNetwork(canvasRef)
+  useHeroFade(contentRef)
 
   return (
     <section className="hero" id="home">
-      <div className="hero-bg">
-        <span className="orb orb-1" />
-        <span className="orb orb-2" />
-        <span className="orb orb-3" />
-        <div className="hero-grid" />
+      <div className="hero-bg" ref={bgRef}>
+        <span className="parallax-layer" data-depth="26"><span className="orb orb-1" /></span>
+        <span className="parallax-layer" data-depth="42"><span className="orb orb-2" /></span>
+        <span className="parallax-layer" data-depth="16"><span className="orb orb-3" /></span>
+        <span className="parallax-layer" data-depth="12"><span className="hero-grid" /></span>
+        <canvas ref={canvasRef} className="particle-canvas" />
       </div>
 
-      <div className="container hero-content">
+      <div className="container hero-content" ref={contentRef}>
         <div className="hero-left">
           <span className="availability">
             <span className="status-dot" />
@@ -45,7 +54,7 @@ export default function Hero() {
           </span>
 
           <h1 className="hero-title">
-            Hi, I&apos;m <span className="gradient-text">Bagues Putra</span>
+            Hi, I&apos;m <span className="gradient-text">Bagues Putra Tawaqqal</span>
           </h1>
 
           <div className="hero-type">
@@ -62,18 +71,22 @@ export default function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a className="btn btn-primary" href="#projects">
+            <Magnetic className="btn btn-primary" href="#projects">
               View My Work
               <span>↓</span>
-            </a>
-            <a className="btn btn-ghost" href="#contact">
+            </Magnetic>
+            <Magnetic className="btn btn-ghost" href="#contact">
               Contact Me
-            </a>
+            </Magnetic>
+            <Magnetic className="btn btn-ghost" href="/Bagues-Putra-Tawaqqal-Resume.pdf" download>
+              Download Resume
+              <span>⬇</span>
+            </Magnetic>
           </div>
 
           <div className="hero-socials">
             {socials.map((s) => (
-              <a
+              <Magnetic
                 key={s.label}
                 className="social-btn"
                 href={s.url}
@@ -83,7 +96,7 @@ export default function Hero() {
                 title={s.label}
               >
                 <SocialIcon name={s.icon} />
-              </a>
+              </Magnetic>
             ))}
           </div>
         </div>
@@ -98,7 +111,7 @@ export default function Hero() {
             </div>
             <div className="terminal-body">
               <p><span className="kw">const</span> <span className="fn">developer</span> = <span className="br">{"{"}</span></p>
-              <p className="indent1"><span className="prop">name</span>: <span className="str">'Bagues Putra'</span>,</p>
+              <p className="indent1"><span className="prop">name</span>: <span className="str">'Bagues Putra Tawaqqal'</span>,</p>
               <p className="indent1"><span className="prop">role</span>: <span className="str">'Full Stack Developer'</span>,</p>
               <p className="indent1"><span className="prop">stack</span>: [<span className="str">'Laravel'</span>, <span className="str">'React'</span>, <span className="str">'Next.js'</span>, <span className="str">'Node.js'</span>, <span className="str">'Go'</span>],</p>
               <p className="indent1"><span className="prop">passion</span>: <span className="str">'Clean scalable systems'</span>,</p>
@@ -130,7 +143,7 @@ export default function Hero() {
       <div className="hero-footer">
         <div className="container hero-stats">
           <div className="stat">
-            <span className="stat-num">{year - 2021}+</span>
+            <span className="stat-num">{year - 2022}+</span>
             <span className="stat-label">Years Coding</span>
           </div>
           <div className="stat-divider" />

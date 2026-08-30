@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Magnetic from './Magnetic.jsx'
 
 const links = [
   { id: 'home', label: 'Home' },
@@ -11,9 +12,27 @@ const links = [
 export default function Navbar({ activeSection }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const openRef = useRef(false)
+  const lastYRef = useRef(0)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    openRef.current = open
+  }, [open])
+
+  useEffect(() => {
+    lastYRef.current = window.scrollY
+    const onScroll = () => {
+      const y = window.scrollY
+      setScrolled(y > 40)
+      if (openRef.current) {
+        setHidden(false)
+        lastYRef.current = y
+        return
+      }
+      setHidden(y > 160 && y > lastYRef.current)
+      lastYRef.current = y
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -32,7 +51,7 @@ export default function Navbar({ activeSection }) {
 
   return (
     <>
-      <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <header className={`navbar ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''}`}>
         <div className="navbar-inner container">
           <button className="brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="brand-dot" />
@@ -47,13 +66,15 @@ export default function Navbar({ activeSection }) {
                 className={`nav-link ${activeSection === l.id ? 'active' : ''}`}
                 onClick={() => go(l.id)}
               >
-                <span className="nav-index">0{links.indexOf(l) + 1}.</span>
                 {l.label}
               </button>
             ))}
-            <a className="nav-cta" href="https://github.com/baguesputra" target="_blank" rel="noreferrer">
+            <Magnetic className="nav-cta" href="/Bagues-Putra-Tawaqqal-Resume.pdf" download>
+              Resume ⬇
+            </Magnetic>
+            <Magnetic className="nav-cta" href="https://github.com/baguesputra" target="_blank" rel="noreferrer">
               GitHub ↗
-            </a>
+            </Magnetic>
           </nav>
 
           <button
@@ -78,11 +99,11 @@ export default function Navbar({ activeSection }) {
                 style={{ transitionDelay: `${i * 60}ms` }}
                 onClick={() => go(l.id)}
               >
-                <span className="nav-index">0{i + 1}.</span>
                 {l.label}
               </button>
             ))}
             <div className="mobile-socials">
+              <a href="/Bagues-Putra-Tawaqqal-Resume.pdf" download>Resume</a>
               <a href="https://github.com/baguesputra" target="_blank" rel="noreferrer">GitHub</a>
               <a href="https://www.linkedin.com/in/baguesputra" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="https://twitter.com/baguesputra" target="_blank" rel="noreferrer">X</a>

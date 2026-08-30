@@ -1,0 +1,56 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 474 >>
+stream
+BT
+/F1 28 Tf
+1 0 0 1 72 760 Td
+(Bagues Putra Tawaqqal) Tj
+/F1 12 Tf
+0 -34 Td
+(IT Programmer  |  IT Coordinator  |  Frontend Developer) Tj
+/F2 10 Tf
+0 -26 Td
+(bagus.putra.dev@gmail.com  |  github.com/baguesputra  |  linkedin.com/in/baguesputra) Tj
+0 -40 Td
+/F1 15 Tf
+(RESUME PLACEHOLDER) Tj
+0 -20 Td
+/F2 10 Tf
+(Ganti file ini dengan resume asli Anda.) Tj
+0 -18 Td
+(Lokasi: public/Bagues-Putra-Tawaqqal-Resume.pdf) Tj
+0 -18 Td
+(Setelah diganti, jalankan: npm run build) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000775 00000 n 
+0000000850 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+920
+%%EOF

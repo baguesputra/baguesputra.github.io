@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
-import { useReveal, useTilt } from '../hooks/useEffects.js'
+import { useReveal, useTilt, useSpotlight } from '../hooks/useEffects.js'
+import SplitWords from './SplitWords.jsx'
 import { projects } from '../data/portfolio.js'
 
 const categories = ['All', 'Fullstack', 'Backend', 'Frontend', 'SaaS']
@@ -7,12 +8,14 @@ const categories = ['All', 'Fullstack', 'Backend', 'Frontend', 'SaaS']
 function ProjectCard({ project, index }) {
   const tiltRef = useTilt()
   const revealRef = useReveal()
+  const spotlightRef = useSpotlight()
 
   return (
     <article
       ref={(el) => {
         tiltRef.current = el
         revealRef.current = el
+        spotlightRef.current = el
       }}
       className={`project-card accent-${project.accent} reveal`}
       style={{ ['--d']: `${index * 80}ms` }}
@@ -67,9 +70,9 @@ export default function Projects() {
       <div className="container">
         <div className="section-head projects-head reveal" ref={headRef}>
           <span className="section-tag">// Projects</span>
-          <h2 className="section-title">
+          <SplitWords as="h2" className="section-title">
             Things I&apos;ve <span className="gradient-text">built</span>
-          </h2>
+          </SplitWords>
           <p className="section-sub">
             A selection of real projects from my GitHub — fullstack apps, production APIs,
             and tools across healthcare, finance, logistics and public services.
