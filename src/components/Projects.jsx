@@ -67,11 +67,12 @@ function ProjectCard({ project, index }) {
 export default function Projects() {
   const headRef = useReveal()
   const [active, setActive] = useState('All')
+  const [showAll, setShowAll] = useState(false)
 
-  const filtered = useMemo(
-    () => (active === 'All' ? projects : projects.filter((p) => p.category === active)),
-    [active],
-  )
+  const highlightedProjects = projects.filter(project => project.highlight)
+  const filteredProjects = active === 'All' ? projects : projects.filter(p => p.category === active)
+  const filteredHighlighted = active === 'All' ? highlightedProjects : highlightedProjects.filter(p => p.category === active)
+  const displayedProjects = showAll ? filteredProjects : filteredHighlighted.slice(0, 3)
 
   return (
     <section className="section projects" id="projects">
@@ -100,17 +101,28 @@ export default function Projects() {
         </div>
 
         <div className="projects-grid">
-          {filtered.map((p, i) => (
+          {displayedProjects.map((p, i) => (
             <ProjectCard key={p.id} project={p} index={i} />
           ))}
         </div>
 
-        <div className="projects-more">
-          <a className="btn btn-ghost" href="https://github.com/baguesputra?tab=repositories" target="_blank" rel="noreferrer">
-            See all repositories on GitHub
-            <span>↗</span>
-          </a>
-        </div>
+        {!showAll && filteredHighlighted.length > 3 && (
+          <div className="projects-more">
+            <button className="btn btn-ghost" onClick={() => setShowAll(true)}>
+              Show all {filteredHighlighted.length} projects
+              <span>↓</span>
+            </button>
+          </div>
+        )}
+
+        {showAll && filteredHighlighted.length > 3 && (
+          <div className="projects-more">
+            <a className="btn btn-ghost" href="https://github.com/baguesputra?tab=repositories" target="_blank" rel="noreferrer">
+              See all repositories on GitHub
+              <span>↗</span>
+            </a>
+          </div>
+        )}
       </div>
     </section>
   )
